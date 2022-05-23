@@ -51,7 +51,7 @@ const resolvers = {
 
             throw new AuthenticationError('Not logged in');
         },
-        removeBook: async(parent, { bookId }) => {
+        removeBook: async(parent, { bookId }, context) => {
             const book = await Book.findOne({ bookId: bookId })
 
             if(context.user){
